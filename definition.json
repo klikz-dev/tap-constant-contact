@@ -1,0 +1,54 @@
+{
+  "name": "Constant Contact",
+  "version": "1.0.0",
+  "description": "Constant Contact is the Email Marketing system that has all of the features with no limitations. Whether you're using an out-of-the-box implementation or a custom implementation, the Bytespree connector for Constant Contact is able to download all of your Constant Contact data.",
+  "instructions": "<ol><li>Create an Application Integration</li><ul><li>Open the <a href='https://v3.developer.constantcontact.com/' target='_blank'>V3 API Developer Portal</a> and click My Applications.</li><li>Click Log in, then enter your user name and password.</li><li>Click the My Applications tab, then click New Application.</li><li>Enter a name for your application, and save the API Key and secret to asecure location.</li><li>Specify the following OAuth Callback URL:https://orchestration.bytespree.com/OAuth/callback</li></ul><li>In Bytespree, provide the API Key and Secret for the Constant Contact connected app you just created</li><li>Click \"Connect to Constant Contact\" in Bytespree</li><li>Finish database setup</li></ol>",
+  "known_limitations": [
+    "Emptying the Constant Contact recycling bin manually may cause some deleted records to persist in Bytespree."
+  ],
+  "use_tables": true,
+  "use_hooks": false,
+  "logo_path": "logo.png",
+  "full_replace": true,
+  "is_oauth": true,
+  "oauth_url": "https://authz.constantcontact.com/oauth2/default/v1/authorize?client_id={{client_id}}&state={{state}}&redirect_uri={{orchestration_url}}%2fOAuth%2fcallback&response_type=code&scope=contact_data+campaign_data+offline_access",
+  "is_unified_application": false,
+  "settings": [
+    {
+      "name": "client_id",
+      "friendly_name": "API Key (Client Id)",
+      "description": "Retrieve this from a connected app's setup page in the Constant Contact developer portal",
+      "is_secure": false,
+      "is_required": true,
+      "setting_type": "integration",
+      "ordinal_position": 1
+    },
+    {
+      "name": "client_secret",
+      "friendly_name": "Client Secret",
+      "description": "Retrieve this from a connected app's setup page in the Constant Contact developer portal",
+      "is_secure": true,
+      "is_required": true,
+      "setting_type": "integration",
+      "ordinal_position": 2
+    },
+    {
+      "name": "access_token",
+      "friendly_name": "Constant Contact Access Token",
+      "description": "",
+      "is_secure": true,
+      "is_required": false,
+      "setting_type": "integration",
+      "is_private": true
+    },
+    {
+      "name": "refresh_token",
+      "friendly_name": "Constant Contact Refresh Token",
+      "description": "",
+      "is_secure": true,
+      "is_required": false,
+      "setting_type": "integration",
+      "is_private": true
+    }
+  ]
+}
